@@ -133,3 +133,14 @@ D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\obj\Debug\net10.0\refint
 D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\obj\Debug\net10.0\FinanceTracker.API.pdb
 D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\obj\Debug\net10.0\FinanceTracker.API.genruntimeconfig.cache
 D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\obj\Debug\net10.0\ref\FinanceTracker.API.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\ASP .NET\Personal Finance Tracker\FinanceTracker.API\obj\Debug\net10.0\FinanceTracker.API.sourcelink.json
