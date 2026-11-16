@@ -1,2 +1,30 @@
-bin/*
-obj/*
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.rsuser
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Publish output
+publish/
