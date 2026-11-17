@@ -3,6 +3,7 @@ using FinanceTracker.API.DataBase.Contexts;
 using FinanceTracker.API.DataBase.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinanceTracker.API.App.Controllers
 {
@@ -11,10 +12,13 @@ namespace FinanceTracker.API.App.Controllers
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public UserController(ApplicationDbContext context)
+
+        public UserController(ApplicationDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [HttpPost]
@@ -22,14 +26,19 @@ namespace FinanceTracker.API.App.Controllers
         {
             var user = new User
             {
-                Username = request.Username,
-                Email = request.Email
+                UserName = request.UserName,
+                Email = request.Email,
+                DisplayName = request.DisplayName
             };
 
-            _context.Users.Add(user);
+            var result = await _userManager.CreateAsync(user, request.Password);
 
-            await _context.SaveChangesAsync();
-            return Ok("ok");
+            if (!result.Succeeded)
+            {
+                return BadRequest(result.Errors);
+            }
+
+            return Ok("User registered successfully");
         }
     }
 }

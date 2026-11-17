@@ -73,10 +73,6 @@ namespace FinanceTracker.API.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");

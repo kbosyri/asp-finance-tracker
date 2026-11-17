@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinanceTracker.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20261116122505_UpdateUserModel")]
-    partial class UpdateUserModel
+    [Migration("20261117131659_CreateUserModel")]
+    partial class CreateUserModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,10 +74,6 @@ namespace FinanceTracker.API.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");

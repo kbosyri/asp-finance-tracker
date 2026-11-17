@@ -1,7 +1,7 @@
 namespace FinanceTracker.API.App.Dtos.Requests;
 
 public record RegisterUserRequest(
-    string Username,
+    string UserName,
     string? Email,
     string DisplayName,
     string Password
