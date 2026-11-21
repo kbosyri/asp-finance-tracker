@@ -4,41 +4,49 @@ using FinanceTracker.API.DataBase.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinanceTracker.API.App.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<User> _userManager;
 
 
-        public UserController(ApplicationDbContext context, UserManager<User> userManager)
+        public UserController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> registerUser([FromBody] RegisterUserRequest request)
+        [HttpGet("me")]
+        public async Task<IActionResult> GetCurrentUser()
         {
-            var user = new User
-            {
-                UserName = request.UserName,
-                Email = request.Email,
-                DisplayName = request.DisplayName
-            };
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var result = await _userManager.CreateAsync(user, request.Password);
+            if (!int.TryParse(userIdClaim, out var userId))
+                return Unauthorized();
 
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
+            var user = await _context.Users
+                .Where(u => u.Id == userId)
+                .Select(u => new
+                {
+                    u.Id,
+                    u.UserName,
+                    u.Email,
+                    u.DisplayName,
+                    u.CreatedAt
+                })
+                .FirstOrDefaultAsync();
 
-            return Ok("User registered successfully");
+            if (user == null)
+                return NotFound();
+
+            return Ok(user);
         }
     }
 }
